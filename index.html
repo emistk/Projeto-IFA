@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade Óptica e Visual</title>
+    <!-- Link para o arquivo CSS separado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Atalho de acessibilidade para leitores de tela e navegação por teclado -->
+    <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- Cabeçalho Principal -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon" aria-hidden="true">👁️</span>
+                <h1>VisãoPlural</h1>
+            </div>
+            <nav aria-label="Navegação Principal">
+                <ul class="nav-menu">
+                    <li><a href="#daltonismo">Daltonismo</a></li>
+                    <li><a href="#baixa-visao">Baixa Visão</a></li>
+                    <li><a href="#boas-praticas">Boas Práticas</a></li>
+                    <li><a href="#ferramentas">Ferramentas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Acessibilidade Óptica</span>
+            <h2>Design Inclusivo para Baixa Visão e Daltonismo</h2>
+            <p>Construindo interfaces web claras, contrastantes e funcionais para todas as percepções visuais.</p>
+            <a href="#boas-praticas" class="btn btn-primary">Ver Guia Prático</a>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo-principal" class="main-container">
+
+        <!-- Seção: Daltonismo -->
+        <section id="daltonismo" class="card-section">
+            <div class="section-header">
+                <span class="section-tag" aria-hidden="true">🎨</span>
+                <h2>Design para Daltonismo</h2>
+            </div>
+            <p class="section-description">
+                O daltonismo (discromatopsia) afeta a capacidade de distinguir certas cores. Um design acessível não depende apenas de cor para transmitir informações essenciais.
+            </p>
+
+            <div class="grid-cards">
+                <div class="info-card">
+                    <h3>Protanopia e Deuteranopia</h3>
+                    <p>Dificuldade em distinguir tons de vermelho e verde. Evite usar apenas vermelho/verde para indicar estados como erro e sucesso.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Tritanopia</h3>
+                    <p>Dificuldade em distinguir tons de azul e amarelo. O uso de símbolos e textos descritivos complementa a paleta visual.</p>
+                </div>
+            </div>
+
+            <!-- Exemplo Prático de Acessibilidade -->
+            <div class="demo-box">
+                <h3>Exemplo: Status Acessível (Cor + Ícone + Texto)</h3>
+                <p>Mesmo sem enxergar as cores, o usuário entende o status pelos ícones e rótulos:</p>
+
+                <div class="status-group">
+                    <div class="status-item status-success">
+                        <span class="status-icon" aria-hidden="true">✓</span>
+                        <span>Sucesso (Concluído)</span>
+                    </div>
+                    <div class="status-item status-warning">
+                        <span class="status-icon" aria-hidden="true">⚠</span>
+                        <span>Atenção (Revisão Necessária)</span>
+                    </div>
+                    <div class="status-item status-error">
+                        <span class="status-icon" aria-hidden="true">✕</span>
+                        <span>Erro (Falha ao Enviar)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Baixa Visão -->
+        <section id="baixa-visao" class="card-section">
+            <div class="section-header">
+                <span class="section-tag" aria-hidden="true">🔍</span>
+                <h2>Acessibilidade para Baixa Visão</h2>
+            </div>
+            <p class="section-description">
+                Pessoas com baixa visão se beneficiam de contraste elevado, tipografia legível e layouts responsivos que permitem zoom sem perda de conteúdo.
+            </p>
+
+            <div class="grid-cards">
+                <div class="info-card">
+                    <h3>Alto Contraste</h3>
+                    <p>Mantenha uma taxa de contraste mínima de 4.5:1 para texto normal e 3:1 para texto grande em relação ao fundo (Diretrizes WCAG AA).</p>
+                </div>
+                <div class="info-card">
+                    <h3>Redimensionamento de Texto</h3>
+                    <p>Utilize unidades relativas (como <code>rem</code> e <code>em</code>) para permitir que o texto aumente em até 200% sem quebrar o layout.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Checklist de Boas Práticas -->
+        <section id="boas-praticas" class="card-section">
+            <div class="section-header">
+                <span class="section-tag" aria-hidden="true">✅</span>
+                <h2>Checklist de Desenvolvimento</h2>
+            </div>
+            <ul class="checklist">
+                <li>
+                    <strong>Links Destacados:</strong> Os links possuem sublinhado visível, não dependendo apenas da cor.
+                </li>
+                <li>
+                    <strong>Foco Visível:</strong> Elementos interativos exibem uma borda espessa e contrastante ao navegar pelo teclado.
+                </li>
+                <li>
+                    <strong>Tipografia Clara:</strong> Fontes sem serifa com bom espaçamento entre letras e linhas.
+                </li>
+                <li>
+                    <strong>Textos Alternativos:</strong> Imagens e ícones possuem descrições apropriadas para leitores de tela.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 VisãoPlural — Projetado com foco em Acessibilidade Óptica e Visual.</p>
+            <p>Conforme diretrizes WCAG 2.1 (Web Content Accessibility Guidelines).</p>
+        </div>
+    </footer>
+
+</body>
+</html>
