@@ -3,141 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acessibilidade Óptica e Visual</title>
-    <!-- Link para o arquivo CSS separado -->
-    <link rel="stylesheet" href="style.css">
+    <title>Saúde Visual e Acessibilidade: Daltonismo e Baixa Visão</title>
+    <style>
+        /* Variáveis de cores ajustadas para Alto Contraste (Taxa de contraste > 7:1 para máxima legibilidade) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --surface-bg: #f4f4f6;
+            --border-color: #000000;
+            --link-color: #0044cc;
+            --focus-outline: #ffaa00;
+            --font-size-base: 1.25rem; /* 20px base para facilitar a leitura */
+        }
+
+        /* Suporte ao Modo Escuro nativo mantendo alto contraste */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #ffffff;
+                --surface-bg: #1e1e1e;
+                --border-color: #ffffff;
+                --link-color: #66b2ff;
+                --focus-outline: #ffcc00;
+            }
+        }
+
+        /* Estilos Globais e Tipografia Limpa (Sans-serif com bom espaçamento) */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Link de atalho rápido para leitores de tela e navegação por teclado */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 12px;
+            z-index: 100;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        header, main, footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        header {
+            border-bottom: 4px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        /* Estilização de Links e Foco Visível para Teclado */
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        a:focus, button:focus {
+            outline: 4px solid var(--focus-outline);
+            outline-offset: 4px;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background-color: var(--surface-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.3;
+            margin-top: 0;
+        }
+
+        /* Imagens Responsivas e Vetoriais com Bordas Visíveis */
+        .svg-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+
+        /* Padrões Visuais (Texturas para Daltonismo) */
+        .pattern-box {
+            fill: #0044cc;
+        }
+
+        footer {
+            border-top: 4px solid var(--border-color);
+            margin-top: 3rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Atalho de acessibilidade para leitores de tela e navegação por teclado -->
-    <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <!-- Cabeçalho Principal -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <span class="logo-icon" aria-hidden="true">👁️</span>
-                <h1>VisãoPlural</h1>
-            </div>
-            <nav aria-label="Navegação Principal">
-                <ul class="nav-menu">
-                    <li><a href="#daltonismo">Daltonismo</a></li>
-                    <li><a href="#baixa-visao">Baixa Visão</a></li>
-                    <li><a href="#boas-praticas">Boas Práticas</a></li>
-                    <li><a href="#ferramentas">Ferramentas</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Saúde Visual e Acessibilidade</h1>
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li><a href="#daltonismo">Daltonismo</a></li>
+                <li><a href="#baixa-visao">Baixa Visão</a></li>
+                <li><a href="#outros-problemas">Outros Problemas Visuais</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Banner Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Acessibilidade Óptica</span>
-            <h2>Design Inclusivo para Baixa Visão e Daltonismo</h2>
-            <p>Construindo interfaces web claras, contrastantes e funcionais para todas as percepções visuais.</p>
-            <a href="#boas-praticas" class="btn btn-primary">Ver Guia Prático</a>
-        </div>
-    </section>
-
-    <!-- Conteúdo Principal -->
-    <main id="conteudo-principal" class="main-container">
-
-        <!-- Seção: Daltonismo -->
-        <section id="daltonismo" class="card-section">
-            <div class="section-header">
-                <span class="section-tag" aria-hidden="true">🎨</span>
-                <h2>Design para Daltonismo</h2>
-            </div>
-            <p class="section-description">
-                O daltonismo (discromatopsia) afeta a capacidade de distinguir certas cores. Um design acessível não depende apenas de cor para transmitir informações essenciais.
+    <main id="conteudo-principal">
+        
+        <section id="introducao">
+            <h2>Compreendendo a Visão e Acessibilidade</h2>
+            <p>
+                A percepção visual varia entre os indivíduos. Para pessoas com daltonismo ou baixa visão, o uso de alto contraste, fontes grandes e o suporte de elementos gráficos acessíveis facilitam a leitura e a compreensão da informação sem depender exclusivamente das cores.
             </p>
-
-            <div class="grid-cards">
-                <div class="info-card">
-                    <h3>Protanopia e Deuteranopia</h3>
-                    <p>Dificuldade em distinguir tons de vermelho e verde. Evite usar apenas vermelho/verde para indicar estados como erro e sucesso.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Tritanopia</h3>
-                    <p>Dificuldade em distinguir tons de azul e amarelo. O uso de símbolos e textos descritivos complementa a paleta visual.</p>
-                </div>
-            </div>
-
-            <!-- Exemplo Prático de Acessibilidade -->
-            <div class="demo-box">
-                <h3>Exemplo: Status Acessível (Cor + Ícone + Texto)</h3>
-                <p>Mesmo sem enxergar as cores, o usuário entende o status pelos ícones e rótulos:</p>
-
-                <div class="status-group">
-                    <div class="status-item status-success">
-                        <span class="status-icon" aria-hidden="true">✓</span>
-                        <span>Sucesso (Concluído)</span>
-                    </div>
-                    <div class="status-item status-warning">
-                        <span class="status-icon" aria-hidden="true">⚠</span>
-                        <span>Atenção (Revisão Necessária)</span>
-                    </div>
-                    <div class="status-item status-error">
-                        <span class="status-icon" aria-hidden="true">✕</span>
-                        <span>Erro (Falha ao Enviar)</span>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <!-- Seção: Baixa Visão -->
-        <section id="baixa-visao" class="card-section">
-            <div class="section-header">
-                <span class="section-tag" aria-hidden="true">🔍</span>
-                <h2>Acessibilidade para Baixa Visão</h2>
-            </div>
-            <p class="section-description">
-                Pessoas com baixa visão se beneficiam de contraste elevado, tipografia legível e layouts responsivos que permitem zoom sem perda de conteúdo.
+        <section id="daltonismo">
+            <h2>Daltonismo</h2>
+            <p>
+                O daltonismo é uma condição em que a pessoa tem dificuldade para distinguir certas cores, principalmente entre o vermelho e o verde, ou entre o azul e o amarelo.
             </p>
 
-            <div class="grid-cards">
-                <div class="info-card">
-                    <h3>Alto Contraste</h3>
-                    <p>Mantenha uma taxa de contraste mínima de 4.5:1 para texto normal e 3:1 para texto grande em relação ao fundo (Diretrizes WCAG AA).</p>
-                </div>
-                <div class="info-card">
-                    <h3>Redimensionamento de Texto</h3>
-                    <p>Utilize unidades relativas (como <code>rem</code> e <code>em</code>) para permitir que o texto aumente em até 200% sem quebrar o layout.</p>
-                </div>
+            <h3>Como Ajudar a Enxergar Melhor (Uso de Padrões e Texturas):</h3>
+            <p>
+                Para tornar o conteúdo acessível a pessoas daltônicas, <strong>nunca utilize apenas a cor para transmitir uma informação</strong>. Inclua ícones, rótulos de texto e padrões/texturas visuais.
+            </p>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 400 180" role="img" aria-labelledby="title-daltonismo desc-daltonismo">
+                    <title id="title-daltonismo">Exemplo de Design Acessível para Daltonismo</title>
+                    <desc id="desc-daltonismo">Um gráfico comparando duas caixas: uma usando apenas cor e outra usando cor acompanhada de textura e texto para fácil identificação.</desc>
+                    
+                    <defs>
+                        <pattern id="listras" width="10" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="0" x2="0" y2="10" stroke="#000000" stroke-width="4" />
+                        </pattern>
+                    </defs>
+
+                    <rect x="20" y="30" width="160" height="100" fill="#0044cc" rx="5" />
+                    <text x="100" y="150" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">Status A</text>
+
+                    <rect x="220" y="30" width="160" height="100" fill="#0044cc" rx="5" />
+                    <rect x="220" y="30" width="160" height="100" fill="url(#listras)" opacity="0.3" rx="5" />
+                    <text x="300" y="85" font-size="28" font-weight="bold" text-anchor="middle" fill="#ffffff">✓</text>
+                    <text x="300" y="150" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">Status B (Com Textura)</text>
+                </svg>
             </div>
+
+            <ul>
+                <li><strong>Protanopia:</strong> Redução ou ausência da percepção do vermelho.</li>
+                <li><strong>Deuteranopia:</strong> Dificuldade em perceber a luz verde (a forma mais comum).</li>
+                <li><strong>Tritanopia:</strong> Dificuldade em diferenciar tons de azul e amarelo.</li>
+            </ul>
         </section>
 
-        <!-- Seção: Checklist de Boas Práticas -->
-        <section id="boas-praticas" class="card-section">
-            <div class="section-header">
-                <span class="section-tag" aria-hidden="true">✅</span>
-                <h2>Checklist de Desenvolvimento</h2>
+        <section id="baixa-visao">
+            <h2>Baixa Visão</h2>
+            <p>
+                A baixa visão reflete uma perda parcial da visão que não pode ser completamente corrigida com óculos convencionais ou cirurgias.
+            </p>
+
+            <h3>Diretrizes Visuais para Baixa Visão:</h3>
+            <p>
+                Abaixo está uma demonstração visual de como o contraste forte e contornos bem definidos ajudam na identificação de elementos na tela:
+            </p>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 400 160" role="img" aria-labelledby="title-baixavisao desc-baixavisao">
+                    <title id="title-baixavisao">Comparação de Contraste para Baixa Visão</title>
+                    <desc id="desc-baixavisao">Lado esquerdo exibe texto cinza claro em fundo branco com baixo contraste. Lado direito exibe texto preto em fundo amarelo com alto contraste e contorno espesso.</desc>
+                    
+                    <rect x="10" y="20" width="175" height="120" fill="#f0f0f0" stroke="#ccc" stroke-width="1" />
+                    <text x="97" y="75" font-size="16" fill="#aaa" text-anchor="middle">Baixo Contraste</text>
+                    <text x="97" y="100" font-size="14" fill="#ccc" text-anchor="middle">(Difícil)</text>
+
+                    <rect x="215" y="20" width="175" height="120" fill="#ffff00" stroke="#000000" stroke-width="4" />
+                    <text x="302" y="75" font-size="18" fill="#000000" font-weight="bold" text-anchor="middle">Alto Contraste</text>
+                    <text x="302" y="100" font-size="16" fill="#000000" font-weight="bold" text-anchor="middle">(Fácil)</text>
+                </svg>
             </div>
-            <ul class="checklist">
-                <li>
-                    <strong>Links Destacados:</strong> Os links possuem sublinhado visível, não dependendo apenas da cor.
-                </li>
-                <li>
-                    <strong>Foco Visível:</strong> Elementos interativos exibem uma borda espessa e contrastante ao navegar pelo teclado.
-                </li>
-                <li>
-                    <strong>Tipografia Clara:</strong> Fontes sem serifa com bom espaçamento entre letras e linhas.
-                </li>
-                <li>
-                    <strong>Textos Alternativos:</strong> Imagens e ícones possuem descrições apropriadas para leitores de tela.
-                </li>
+
+            <ul>
+                <li><strong>Contraste Elevado:</strong> O uso de texto escuro sobre fundo claro (ou o inverso) melhora a nitidez das letras.</li>
+                <li><strong>Fontes Ampliáveis:</strong> Utilização de unidades relativas no CSS (`rem`) para permitir o zoom da página sem distorção.</li>
+                <li><strong>Espaçamento Adequado:</strong> Aumento no espaçamento entre linhas e parágrafos para evitar o embaralhamento do texto.</li>
+            </ul>
+        </section>
+
+        <section id="outros-problemas">
+            <h2>Outros Problemas Visuais Comuns</h2>
+            <ul>
+                <li><strong>Miopia:</strong> Dificuldade em focar objetos distantes.</li>
+                <li><strong>Hipermetropia:</strong> Dificuldade em focar objetos próximos.</li>
+                <li><strong>Astigmatismo:</strong> Visão embaçada em várias distâncias devido à irregularidade na curvatura da córnea.</li>
+                <li><strong>Catarata:</strong> Perda da transparência do cristalino, tornando a visão opaca ou enevoada.</li>
             </ul>
         </section>
 
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2026 VisãoPlural — Projetado com foco em Acessibilidade Óptica e Visual.</p>
-            <p>Conforme diretrizes WCAG 2.1 (Web Content Accessibility Guidelines).</p>
-        </div>
+    <footer>
+        <p>Página desenvolvida seguindo as recomendações da WCAG (Web Content Accessibility Guidelines).</p>
     </footer>
 
 </body>
